@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Rhythms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .header-logo {
+            width: 150px;
+            height: 50px;
+            margin-bottom: 60px;
+        }
+
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background-image: url('https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991975/position2_background_image_gzjir3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            text-align: center;
+            background-image: url('https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991975/Path_vrskbv.png');
+            background-size: cover;
+            height: inherit;
+            width: 100%;
+            z-index: 1;
+            padding: 30px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transform: rotate('15deg');
+        }
+
+        .hero-content h1 {
+            width: 495px;
+                height: 218px;
+                font-size: 60px;
+                color: #0a0a0a;
+                text-decoration: none solid rgb(10, 10, 10);
+                text-align: left;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .join-button {
+            background-color: #3d0200;
+            border-radius: 21px;
+            border: 0px;
+            width: 200px;
+            height: 50px;
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none solid rgb(255, 255, 255);
+        }
+
+        .about {
+            display: flex;
+            justify-content: space-between;
+            padding: 80px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 65%;
+        }
+
+        .about-content h1{
+            color:#3d0200;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p{
+            font-size: 16px;
+        }
+        
+        .about-content h3{
+            color:#ff5b54;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .benefit-item {
+            margin-bottom: 20px;
+            margin-left: 30px;
+            margin-right: 40px;
+            width: 120px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .benefit-bg {
+            background-color: #eadad9;
+            border-radius: 42px;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .benefit-text {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #3d0200;
+        }
+
+        .join-study-button {
+            background-color: #ff5b54;
+            border-radius: 23px;
+            border: 0px;
+            width: 200px;
+            height: 50px;
+            font-weight: bold;
+        }
+
+        .eligibility {
+            background-color: #3d0200;
+        }
+            
+        .eligibility-container {
+                display: flex;
+            }
+            .eligibility-image {
+                width: 600px;
+                height: 400px;
+            }
+            .eligibility-content {
+                width: 50%;
+            }
+
+            .eligibility-content h1 {
+                font-size: 2rem;
+            }
+
+
+        /* Make header responsive */
+        @media screen and (max-width: 768px) {
+            .header {
+                padding: 0.5rem;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .hero-content h1 {
+                width: 495px;
+                height: 218px;
+                font-family: Inter;
+                font-size: 60px;
+                color: #0a0a0a;
+                text-decoration: none solid rgb(10, 10, 10);
+                text-align: left;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991975/position2_logo_fgqa3w.png" class="header-logo"/>
+            <h1>A new avenue of mental health monitoring</h1>
+            <p>Join the Health Rhythms Study</p>
+            <div>
+            <button class="join-button">Join now</button>
+            </div>
+        </div>
+    </section>
+    <section class="about">
+        <div class="about-content">
+        <img src="https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991975/position2_logo_image_divlmv.png"/>
+        <h1>What's the Health Rhythms Study?</h1>
+        <p>The Health Rhythms study is designed to monitor participants and establish a baseline for mental health. Therapy is not a complete answer, and its monitoring can be sporadic.
+
+            Health Rhythms is a way to keep track of factors that impact mental health, and to create a new way to diagnose and aid people with depression, and other ailments</p>
+            <h3>The Benefits of participating</h3>
+            <ul class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-bg">
+                        <img src="https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991974/monitoring_kfnyn3.png" class="benefit-icon"/>
+                    </div>
+                    <p class="benefit-text">Round-the-clock monitoring</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-bg">
+                        <img src="https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991975/Regular_check-ins_via_the_app_yopfk3.png" class="benefit-icon"/>
+                    </div>
+                    <p class="benefit-text">Regular check-ins via app</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-bg">
+                        <img src="https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991975/Weekly_surveys_and_checks_lbfuta.png" class="benefit-icon"/>
+                    </div>
+                    <p class="benefit-text">Weekly surveys and checks</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-bg">
+                        <img src="https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991974/monitoring_kfnyn3.png" class="benefit-icon"/>
+                    </div>
+                    <p class="benefit-text">Available on all mobile platforms</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-bg">
+                        <img src="https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991974/monitoring_kfnyn3.png" class="benefit-icon"/>
+                    </div>
+                    <p class="benefit-text">Medical grade encryption</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-bg">
+                        <img src="https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991974/Personalized_results_thcyqv.png" class="benefit-icon"/>
+                    </div>
+                    <p class="benefit-text">Personalized results</p>
+                </div>
+            </ul>
+            <button class="join-study-button">JOIN THE STUDY TODAY</button>
+    </div>
+    <div class="about-content-mobile">
+        <img src="https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991975/mobile_image_wwttel.png" class="mobile-image"/>
+    </div>
+    </section>
+    <section class="eligibility">
+        <div class="eligibility-container">
+            <div class="eligibility-image-container">
+                <img src="https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991975/planner_list_pepbbv.png" alt="Eligibility Planner" class="eligibility-image">
+            </div>
+            <div class="eligibility-content">
+                <h1>Eligibility Criteria</h1>
+                <ul>
+                    <li>Participants are 18 years or older</li>
+                    <li>Are current residents of the United States</li>
+                    <li>Must speak English</li>
+                    <li>Self-diagnosed with depression</li>
+                    <li>Own a smartphone(IOS 15/Android 11 or higher)</li>
+                </ul>
+                <a href="#" class="join-button">Join the Study Today</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
