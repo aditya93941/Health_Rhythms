@@ -27,8 +27,9 @@
 
         .header-logo {
             width: 150px;
-            height: 50px;
+            height: auto;
             margin-bottom: 60px;
+            max-width: 100%;
         }
 
         .hero {
@@ -42,6 +43,7 @@
             align-items: center;
             justify-content: flex-start;
             position: relative;
+            overflow: hidden;
         }
 
         .hero::before {
@@ -58,23 +60,26 @@
             text-align: center;
             background-image: url('https://res.cloudinary.com/dmkxsg5xs/image/upload/v1742991975/Path_vrskbv.png');
             background-size: cover;
-            height: inherit;
+            
+            height: 100%;
             width: 100%;
             z-index: 1;
-            padding: 30px 60px;
+            padding: 60px 60px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            transform: rotate('15deg');
+            justify-content: center;
         }
 
         .hero-content h1 {
             width: 495px;
-                height: 218px;
-                font-size: 60px;
-                color: #0a0a0a;
-                text-decoration: none solid rgb(10, 10, 10);
-                text-align: left;
+            max-width: 100%;
+            font-size: 60px;
+            color: #0a0a0a;
+            text-decoration: none solid rgb(10, 10, 10);
+            text-align: left;
+            line-height: 1.2;
+            margin-bottom: 20px;
         }
 
         .hero-content p {
@@ -88,11 +93,13 @@
             border-radius: 21px;
             border: 0px;
             width: 200px;
+            max-width: 100%;
             height: 50px;
             color: #ffffff;
             font-size: 1.2rem;
             font-weight: bold;
             text-align: center;
+            cursor: pointer;
             text-decoration: none solid rgb(255, 255, 255);
         }
 
@@ -100,6 +107,7 @@
             display: flex;
             justify-content: space-between;
             padding: 80px;
+            flex-wrap: wrap;
         }
 
         .about-content {
@@ -108,6 +116,23 @@
             align-items: flex-start;
             justify-content: space-between;
             width: 65%;
+        }
+
+        .about-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .about-content-mobile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35%;
+        }
+
+        .mobile-image {
+            max-width: 100%;
+            height: auto;
         }
 
         .about-content h1{
@@ -167,49 +192,465 @@
             width: 200px;
             height: 50px;
             font-weight: bold;
+            cursor: pointer;
+            color: white;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .join-study-button:hover {
+            background-color: #db4a43;
         }
 
         .eligibility {
             background-color: #3d0200;
+            overflow: hidden;
         }
             
         .eligibility-container {
-                display: flex;
-            }
-            .eligibility-image {
-                width: 600px;
-                height: 400px;
-            }
-            .eligibility-content {
-                width: 50%;
-            }
+            display: flex;
+            padding: 80px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-            .eligibility-content h1 {
-                font-size: 2rem;
-            }
+        .eligibility-image-container {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+        }
 
+        .eligibility-image {
+            width: 500px;
+            max-width: 100%;
+            height: auto;
+        }
 
-        /* Make header responsive */
+        .eligibility-content {
+            width: 50%;
+            height: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-left: 40px;
+        }
+
+        .eligibility-content h1 {
+            font-size: 2.5rem;
+            color: #ff5b54;
+            margin-bottom: 30px;
+        }
+        
+        .eligibility-content ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: auto;
+            margin-bottom: 40px;
+        }
+        
+        .eligibility-content ul li {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            list-style-type: disc;
+            margin-left: 20px;
+            line-height: 1.4;
+        }
+
+        .eligibility-content .join-study-button {
+            color: white;
+            align-self: flex-start;
+        }
+
+        .faq {
+            background-color: #f9f3e9;
+            padding: 4rem 2rem;
+            color: #3d0200;
+        }
+
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq h2 {
+            text-align: center;
+            color: #3d0200;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 1rem 1.5rem;
+            color: #3d0200;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f5ece1;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: normal;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+            transform: rotate(0deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            line-height: 1.6;
+            padding: 0 1.5rem;
+            transition: all 0.3s ease;
+            background-color: #fff;
+            color: #3d0200;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 1rem 1.5rem 1.5rem;
+        }
+
+        .contact-form {
+            background-color: #f9f3e9;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(61, 2, 0, 0.1);
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(61, 2, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            right: 20px;
+            height: 10px;
+            background: #ff5b54;
+            border-radius: 10px 10px 0 0;
+            z-index: -1;
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            color: #3d0200;
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .contact-form h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #ff5b54;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: bold;
+            color: #3d0200;
+            font-size: 1.1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: #fafafa;
+        }
+
+        .form-input:focus {
+            border-color: #ff5b54;
+            box-shadow: 0 0 0 3px rgba(255, 91, 84, 0.2);
+            background-color: white;
+            outline: none;
+        }
+
+        .submit-button {
+            background-color: #ff5b54;
+            color: white;
+            padding: 1rem 1.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(255, 91, 84, 0.3);
+            margin-top: 1.5rem;
+        }
+
+        .submit-button:hover {
+            background-color: #3d0200;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(61, 2, 0, 0.3);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(61, 2, 0, 0.3);
+        }
+
+        .footer {
+            background-color: #3d0200;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .footer-link {
+            color: #ff5b54;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
         @media screen and (max-width: 768px) {
             .header {
                 padding: 0.5rem;
             }
             
-            .logo {
-                font-size: 1.2rem;
+            .hero-content {
+                padding: 40px 30px;
+                align-items: center;
+                text-align: center;background-image: none;
+                background-size: cover;
+                background-position: center;
+                color: #f0f0f0;
+            }
+            
+            .header-logo {
+                margin-bottom: 30px;
             }
 
             .hero-content h1 {
-                width: 495px;
-                height: 218px;
-                font-family: Inter;
-                font-size: 60px;
-                color: #0a0a0a;
-                text-decoration: none solid rgb(10, 10, 10);
-                text-align: left;
+                width: 100%;
+                height: auto;
+                color: #f0f0f0;
+                font-size: 36px;
+                text-align: center;
+                margin-bottom: 15px;
             }
 
             .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .join-button {
+                width: 180px;
+                height: 45px;
+                font-size: 1rem;
+            }
+
+            .about {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+
+            .about-content, .about-content-mobile {
+                width: 100%;
+            }
+
+            .about-content {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            .about-content h1 {
+                font-size: 28px;
+            }
+
+            .benefits-list {
+                justify-content: center;
+            }
+
+            .benefit-item {
+                margin-left: 15px;
+                margin-right: 15px;
+                width: calc(50% - 30px);
+            }
+
+            .eligibility-container {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+
+            .eligibility-image-container {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .eligibility-content {
+                width: 100%;
+                height: auto;
+                gap: 20px;
+                padding-left: 0;
+            }
+
+            .eligibility-content h1 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .eligibility-content ul {
+                height: auto;
+                margin-bottom: 30px;
+                padding-left: 20px;
+            }
+
+            .eligibility-content ul li {
+                margin-bottom: 15px;
+            }
+
+            .eligibility-content .join-study-button {
+                margin: 0 auto;
+                display: block;
+                align-self: center;
+            }
+
+            .faq {
+                padding: 3rem 1rem;
+            }
+
+            .faq h2, .contact-form h2 {
+                font-size: 2rem;
+            }
+
+            .form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .footer {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero-content {
+                padding: 30px 20px;
+                background-position: 70% center;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .join-button, .join-study-button {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .about {
+                padding: 30px 15px;
+            }
+
+            .about-content h1 {
+                font-size: 24px;
+            }
+
+            .about-content h3 {
+                font-size: 20px;
+            }
+
+            .benefit-item {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .benefits-list {
+                justify-content: space-around;
+            }
+
+            .eligibility-container {
+                padding: 30px 15px;
+            }
+
+            .eligibility-content h1 {
+                font-size: 24px;
+            }
+
+            .eligibility-content ul li {
+                font-size: 0.9rem;
+            }
+
+            .faq-question {
+                font-size: 1rem;
+            }
+
+            .form-input, .submit-button {
+                padding: 0.8rem;
+            }
+
+            .form-label {
                 font-size: 1rem;
             }
         }
@@ -232,7 +673,7 @@
         <h1>What's the Health Rhythms Study?</h1>
         <p>The Health Rhythms study is designed to monitor participants and establish a baseline for mental health. Therapy is not a complete answer, and its monitoring can be sporadic.
 
-            Health Rhythms is a way to keep track of factors that impact mental health, and to create a new way to diagnose and aid people with depression, and other ailments</p>
+            Health Rhythms is a way to keep track of factors that impact mental health, and to create a new way to diagnose and aid people with depression, and other ailments</p>
             <h3>The Benefits of participating</h3>
             <ul class="benefits-list">
                 <div class="benefit-item">
@@ -292,9 +733,110 @@
                     <li>Self-diagnosed with depression</li>
                     <li>Own a smartphone(IOS 15/Android 11 or higher)</li>
                 </ul>
-                <a href="#" class="join-button">Join the Study Today</a>
+                <button class="join-study-button">Join the Study Today</button>
             </div>
         </div>
     </section>
+    
+    <section class="faq">
+        <div class="faq-container">
+            <h2>FAQS</h2>
+            <div class="faq-item">
+                <div class="faq-question">How long does the study last?</div>
+                <div class="faq-answer">Our study is designed to run for a total of 12 weeks. During this period, participants will be asked to regularly log their health metrics and participate in scheduled check-ins with our research team.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is there any compensation for participating?</div>
+                <div class="faq-answer">Yes, participants who complete the full 12-week program will receive a $100 gift card as compensation for their time and effort. Additional incentives may be available for those who meet all study requirements.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What kind of data will be collected?</div>
+                <div class="faq-answer">We collect various health metrics including sleep patterns, physical activity levels, heart rate data, and self-reported wellness indicators. All data is securely stored and your privacy is our top priority.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I withdraw from the study once I've started?</div>
+                <div class="faq-answer">Yes, participation is completely voluntary. You can withdraw from the study at any time without any negative consequences. We simply ask that you notify our research team if you decide to discontinue.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Are there any risks involved?</div>
+                <div class="faq-answer">The study is observational and non-invasive, so there are minimal risks involved. You'll simply be tracking various aspects of your daily health habits and routines using our mobile application.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <div class="form-container">
+            <h2>Join The Study</h2>
+            <form id="studyForm">
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="Enter your phone number" required>
+                </div>
+                <button type="submit" class="submit-button">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Health Rhythms Study - Pioneering the future of mental health monitoring through innovative research.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    faqItems.forEach(faqItem => {
+                        faqItem.classList.remove('active');
+                    });
+                    
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            const studyForm = document.getElementById('studyForm');
+            
+            if (studyForm) {
+                studyForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+                    
+                    if (name && email && phone) {
+                        alert('Thank you for your interest in the Health Rhythms Study! We will contact you shortly.');
+                        studyForm.reset();
+                    }
+                });
+            }
+
+            if (faqItems.length > 0) {
+                faqItems[0].classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>
